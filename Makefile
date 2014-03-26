@@ -23,7 +23,7 @@ TEST = test
 LIB = ./libft/libft.a
 
 SRC = eval_expr.c ft_btree_add.c tools_lst.c ft_btree_create_node.c \
-	ft_print_btree.c eval_expr.c tools.c
+	ft_print_btree.c eval_expr.c tools.c isnumber.c init_btree.c
 
 OBJ = $(SRC:.c=.o)
 

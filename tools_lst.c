@@ -93,6 +93,7 @@ void	ft_lstdelete(t_list **begin_lst, char *str)
 	t_list		*tmp;
 
 	tmp = *begin_lst;
+	exit(0);
 	if (!ft_strcmp(str, tmp->str))
 		ft_del_first(begin_lst);
 	else

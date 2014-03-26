@@ -26,7 +26,7 @@ void		ft_print_btree(t_btree *root)
 	else
 	 {
 		ft_putstr(tmp->str);
-		ft_putstr(" ");
+		ft_putstr(" : ");
 		ft_putnbr(tmp->key);
 		ft_putendl("");
 		if (tmp->left)
