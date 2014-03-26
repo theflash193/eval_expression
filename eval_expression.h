@@ -60,6 +60,6 @@ int			isnumber(char *str);
 
 int 		eval_expr(char *str);
 int			init_btree(char *str, t_list *list, t_btree *btree);
-int			calcules_expr(t_list *btree, int i);
+int			calcules_expr(t_btree *btree, int i);
 
 #endif

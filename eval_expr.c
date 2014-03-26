@@ -20,44 +20,45 @@ int		eval_expr(char *str)
 	t_btree	*btree;
 	if (!init_btree(str, list, btree))
 		return (-1);
-	//return (calcules_expr(btree, 0));
+	return (calcules_expr(btree, 0));
 	return (0);
 }
-/*
-int		*calcules_expr(t_btree *btree, int i)
+
+int		calcules_expr(t_btree *btree, int i)
 {
 	t_btree		*tmp;
 
 	tmp = btree;
-	while (!isnumber(LEFT) && !isnumber(RIGHT) && tmp->right)
-		tmp = tmp->right;
-	if (tmp->str == "*")
+	ft_putendl("yolo");
+	if (tmp->left && tmp->right && (!isnumber(LEFT) || !isnumber(RIGHT)))
+		calcules_expr(tmp->right, i);
+	ft_putendl("jojo");
+	if (!ft_strcmp(tmp->str, "*"))
 	{
-		if (!ft_istoken(RIGHT) && !ft_istoken(LEFT))
+		if (!isnumber(RIGHT) && !isnumber(LEFT))
 			return (i = calcules_expr(tmp, (ft_atoi(RIGHT) * ft_atoi(LEFT))));
 		else
-			return (i *= calcules_expr(tmp, (ft_atoi(LEFT) * i));
+			return (i *= calcules_expr(tmp, (ft_atoi(LEFT) * i)));
 	}
-		if (tmp->str == "/")
+		if (ft_strcmp(tmp->str, "/"))
 	{
-		if (!ft_istoken(RIGHT) && !ft_istoken(LEFT))
+		if (isnumber(RIGHT) && isnumber(LEFT))
 			return (i = calcules_expr(tmp, (ft_atoi(RIGHT) / ft_atoi(LEFT))));
 		else
 			return (i /= calcules_expr(tmp, (ft_atoi(LEFT) / i)));
 	}
-		if (tmp->str == "+")
+		if (!ft_strcmp(tmp->str, "+"))
 	{
-		if (!ft_istoken(RIGHT) && !ft_istoken(LEFT))
-			return (i += calcules_expr(tmp, (ft_atoi(RIGHT) * ft_atoi(LEFT))));
+		if (isnumber(RIGHT) && isnumber(LEFT))
+			return (i += calcules_expr(tmp, (ft_atoi(RIGHT) + ft_atoi(LEFT))));
 		else
-			return (i += calcules_expr(tmp, (ft_atoi(LEFT) * i)));
+			return (i += calcules_expr(tmp, (ft_atoi(LEFT) + i)));
 	}
-		if (tmp->str == "-")
+		if (!ft_strcmp(tmp->str, "-"))
 	{
-		if (!ft_istoken(RIGHT) && !ft_istoken(LEFT))
+		if (isnumber(RIGHT) && isnumber(LEFT))
 			return (i -= calcules_expr(tmp, (ft_atoi(RIGHT) - ft_atoi(LEFT))));
 		else
 			return (i -= calcules_expr(tmp, (ft_atoi(LEFT) - i)));
 	}
 }
-*/
